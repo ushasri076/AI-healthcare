@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Healthcare</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>🩺 AI HEALTHCARE</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for services, doctors, medicines...">
+            <button>🔍</button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="options">
+            <a href="book-appointment.html" class="option-card">
+                <div class="icon">📅</div>
+                <div class="text">
+                    <h3>Book Appointment</h3>
+                    <p>Schedule your visit with our doctors</p>
+                </div>
+            </a>
+            <a href="chatbot.html" class="option-card">
+                <div class="icon">🤖</div>
+                <div class="text">
+                    <h3>AI Chatbot</h3>
+                    <p>Get instant health guidance</p>
+                </div>
+            </a>
+            <a href="track-details.html" class="option-card">
+                <div class="icon">📊</div>
+                <div class="text">
+                    <h3>Track My Details</h3>
+                    <p>View your visit history and purchases</p>
+                </div>
+            </a>
+            <a href="patient-details.html" class="option-card">
+                <div class="icon">👤</div>
+                <div class="text">
+                    <h3>Patient Details</h3>
+                    <p>Access your medical profile</p>
+                </div>
+            </a>
+            <a href="buy-medicines.html" class="option-card">
+                <div class="icon">💊</div>
+                <div class="text">
+                    <h3>Buy Medicines</h3>
+                    <p>Order medications online</p>
+                </div>
+            </a>
+            <a href="health-tips.html" class="option-card">
+                <div class="icon">💡</div>
+                <div class="text">
+                    <h3>Health Tips</h3>
+                    <p>Daily wellness advice</p>
+                </div>
+            </a>
+        </div>
+        <div class="emergency">
+            <button class="emergency-btn">🚨 Emergency</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 AI Healthcare. Stay healthy!</p>
+    </footer>
+    <script>
+        document.querySelector('.emergency-btn').addEventListener('click', function() {
+            alert('🚨 Emergency! Please call 911 or your local emergency number immediately. If this is a medical emergency, seek help right away.');
+        });
+
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const query = document.querySelector('.search-bar input').value.toLowerCase();
+            if (query.includes('appointment')) {
+                window.location.href = 'book-appointment.html';
+            } else if (query.includes('chat') || query.includes('bot')) {
+                window.location.href = 'chatbot.html';
+            } else if (query.includes('track') || query.includes('details')) {
+                window.location.href = 'track-details.html';
+            } else if (query.includes('patient')) {
+                window.location.href = 'patient-details.html';
+            } else if (query.includes('medicine') || query.includes('buy')) {
+                window.location.href = 'buy-medicines.html';
+            } else if (query.includes('tip') || query.includes('health')) {
+                window.location.href = 'health-tips.html';
+            } else {
+                alert('No matching service found. Try searching for "appointment", "chatbot", "track details", "patient details", "buy medicines", or "health tips".');
+            }
+        });
+
+        document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-bar button').click();
+            }
+        });
+    </script>
+</body>
+</html>

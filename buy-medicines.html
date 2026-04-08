@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Medicines - AI Healthcare</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="page">
+        <a href="index.html" class="back-btn">Back to Home</a>
+        <h1>Buy Medicines</h1>
+        <div class="medicines">
+            <div class="medicine-item">
+                <h3>Aspirin</h3>
+                <p>$5.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine-item">
+                <h3>Bandages</h3>
+                <p>$3.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine-item">
+                <h3>Vitamins</h3>
+                <p>$12.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine-item">
+                <h3>Pain Reliever</h3>
+                <p>$7.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine-item">
+                <h3>Cough Syrup</h3>
+                <p>$8.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine-item">
+                <h3>Antiseptic Cream</h3>
+                <p>$6.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.medicine-item button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Added to cart!');
+                // In a real app, this would add to cart
+            });
+        });
+    </script>
+</body>
+</html>

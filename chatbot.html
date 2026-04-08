@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - AI Healthcare</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="page">
+        <a href="index.html" class="back-btn">Back to Home</a>
+        <h1>AI Healthcare Chatbot</h1>
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">Hello! I'm your AI healthcare assistant. How can I help you today?</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                addMessage('user', message);
+                userInput.value = '';
+                // Simple bot responses
+                setTimeout(() => {
+                    const response = getBotResponse(message);
+                    addMessage('bot', response);
+                }, 1000);
+            }
+        }
+
+        function addMessage(sender, text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            if (lowerMessage.includes('appointment')) {
+                return 'To book an appointment, please go to the Book Appointment section.';
+            } else if (lowerMessage.includes('medicine')) {
+                return 'You can buy medicines from the Buy Medicines section.';
+            } else if (lowerMessage.includes('symptom')) {
+                return 'Please describe your symptoms, and I can provide general advice. Remember, this is not a substitute for professional medical advice.';
+            } else {
+                return 'I\'m here to help with healthcare-related questions. How else can I assist you?';
+            }
+        }
+
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
